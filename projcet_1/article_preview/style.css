@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+/* - Weights: 500, 700 */
+
+*, *::after, *::before {margin: 0; padding: 0; box-sizing: border-box;}
+img {max-inline-size: 100%; block-size: auto; height: 100%; object-fit: cover;}
+
+:root {
+  --Very-Dark-Grayish-Blue: hsl(217, 19%, 35%);
+  --Desaturated-Dark-Blue: hsl(214, 17%, 51%);
+  --Grayish-Blue: hsl(212, 23%, 69%);
+  --Light-Grayish-Blue: hsl(210, 46%, 95%);
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  min-height: calc(100vh - 1px);
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--Light-Grayish-Blue);
+}
+
+.container {
+  max-width: 327px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #FFFFFF;
+  box-shadow: 0px 4px 8px rgba(0,0,0,.3);
+  margin: 1rem;
+}
+
+@media (min-width: 600px) {
+  .container {
+    display: flex;
+    max-width: 720px;
+  }
+}
+
+
+.image {
+  margin-top: -4rem;
+}
+
+@media (min-width: 600px) {
+  .image {
+    margin-top: 0;
+  }
+}
+
+.inner__content {
+  padding: 1rem 2rem;
+}
+
+@media (min-width: 600px) {
+  .inner__content {
+    padding: 2rem;
+  }
+}
+
+.inner__content .bold {
+  color: var(--Very-Dark-Grayish-Blue);
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+
+.inner__content .norm {
+  color: var(--Desaturated-Dark-Blue);
+  font-size: .85rem;
+}
+
+.author {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1em;
+  transition: opacity .5s ease-in-out;
+  opacity: 1;
+
+  .author__img {
+    height: 40px;
+  }
+  
+  .author__img img{
+    border-radius: 50%;
+  }
+
+  .author__wrap {
+    display: flex;
+    align-items: center;
+  }
+  
+  .author__details {
+    margin-left: .9em;
+  }
+
+  .author__details--date {
+    color: var(--Desaturated-Dark-Blue);
+  }
+
+  .author__details--name {
+    color: var(--Very-Dark-Grayish-Blue);
+    font-weight: bold;
+  }
+
+  .author__details--name,
+  .author__details--date {
+    font-size: .8rem;
+  }
+
+  @starting-style {
+    opacity: 0;
+  }
+}
+
+.share {
+  background-color: var(--Light-Grayish-Blue);
+  padding: .3rem .5rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+@media (min-width: 600px) {
+  .container {
+    position: relative;
+  }
+}
+@media (min-width: 600px) {
+  .container {
+    overflow: visible;
+  }
+
+  .image {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    overflow: hidden;
+  }
+}
+
+.disable {
+  display: none;
+}
+
+.share__click {
+  background-color: var(--Very-Dark-Grayish-Blue);
+  padding: .75rem 2rem;
+  transition: opacity .5s ease-in-out;
+  opacity: 1;
+
+  @starting-style {
+    opacity: 0;
+  }
+}
+
+.share_button1,
+.share_button2 {
+  cursor: pointer;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.share_button2 {
+  height: 14px;
+  filter: brightness(100);
+}
+
+.share.two {
+  background-color: var(--Desaturated-Dark-Blue);
+}
+@media (min-width : 600px) {
+  .share__click {
+    position: absolute;
+    bottom: 35%;
+    right: -50px;
+    min-width: 248px;
+    border-radius: 10px;
+  }
+
+  .share__click::after {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: -20px;
+    right: 88px;
+    border: 10px solid var(--Very-Dark-Grayish-Blue);
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+  }
+
+  .share.two {
+    display: none;
+  }
+
+}
+
+
+.social {
+  display: flex;
+  flex-basis: 70%;
+  justify-content: space-between;
+  align-items: center;
+  p {
+    color: var(--Light-Grayish-Blue);
+    letter-spacing: 3px;
+  }
+  img {
+    height: 20px;
+    transition: transform .3s ease;
+    cursor: pointer;
+  }
+  img:hover {
+    transform: scale(1.3) rotate(-3deg);
+  }
+}
+
+@media (min-width: 600px) {
+  .social {
+    flex-basis: 100%;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 800px) {
+  .container {
+    max-width: 600px;
+  }
+}
+
+
+.hoverEffect::before {
+  /*Then this*/
+  transform: scaleX(0);
+  transform-origin: bottom right;
+}
+.hoverEffect:hover::before {
+  /*first occurs*/
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+.hoverEffect::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  inset: 0 0 0 0;
+  z-index: -1;
+  transition: transform .3s ease;
+  background-color: rgba(171, 173, 171, 0.616);
+}
+
+.hoverEffect {
+  font-size: 1rem;
+  position: relative;
+}
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+
