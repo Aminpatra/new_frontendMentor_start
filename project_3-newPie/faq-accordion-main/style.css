@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* 400, 600, 700 */
+
+*, *::after, *::before {margin: 0;padding: 0;box-sizing: border-box;}
+
+:root {
+  --White: hsl(0, 0%, 100%);
+  --Light-pink: hsl(275, 100%, 97%);
+  --Grayish-purple: hsl(292, 16%, 49%);
+  --Dark-purple: hsl(292, 42%, 14%);
+  --pink: hsl(281, 83%, 54%);
+}
+
+body {
+  min-height: calc(100vh - 1px);
+  height: auto;
+  font-family: "Manrope";
+  background-color: var(--Light-pink);
+  position: relative;
+}
+
+/* @media (min-width: 1000px) {
+  
+} */
+
+
+img {max-inline-size: 100%; block-size: auto; height: 100%; object-fit: cover;}
+picture img {
+  width: 100%;
+}
+
+
+.container {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  min-width: 300px;
+  padding: 1.5rem;
+  background-color: var(--White);
+  height: fit-content;
+  box-shadow: 0 4px 8px rgba(0,0,0,.4);
+  border-radius: 10px;
+}
+
+@media (min-width: 1000px) {
+  .container {
+    min-width: 600px;
+    transform: translate(-50%, -40%);
+  }
+}
+
+header  {
+  h1 {
+    font-size: clamp(1.8rem, calc(2rem + 1vw), 3rem);
+    font-weight: 900;
+    margin-left: .5em;
+    color: var(--Dark-purple);
+  }
+  img {
+    width: clamp(21px, calc(21px + 1vw), 35px);;
+  }
+  margin-bottom: 1em;
+}
+
+
+.flex {
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+}
+
+.flex:not(.not) {
+  justify-content: space-between;
+}
+
+article+article {
+  margin-top: 1em;
+  border-top: 1px solid var(--Light-pink);
+  padding-top: 1em;
+}
+
+article h4{
+  color: var(--Dark-purple);
+  font-size: 1rem;
+  transition: color .3s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    color: var(--pink);
+  }
+}
+
+
+.disable {
+  display: none;
+}
+
+.content {
+  p {
+    transition: opacity .6s ease-in-out, height .6s ease-in-out; 
+    font-size: 0.875rem;
+    margin-top: .7em;
+    color: var(--Grayish-purple);
+    @starting-style {
+      opacity: 0;
+    }
+  }
+}
+
+@media (min-width: 1000px) {
+  .content {
+    p {
+      max-width: 550px;
+    }
+}
+}
+
+
+
+#plus,
+#minus {
+  cursor: pointer;
+  transition: filter .7s ease-in-out;
+}
+
+
+#plus:hover,
+#minus:hover {
+  filter: hue-rotate(20deg);
+}
+
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
